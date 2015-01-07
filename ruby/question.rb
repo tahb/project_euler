@@ -34,7 +34,7 @@ class Question
   # Find the largest palindrome made from the product of two 3-digit numbers.
   def four
     range = (100...1000).to_a.reverse.inject([0]) do |array, number|
-      highest_palindromic = highest_palindromic(number)
+      highest_palindromic = highest_palindromic_for(number)
       array << highest_palindromic if highest_palindromic and highest_palindromic > array.last
       array
     end.last
@@ -44,8 +44,8 @@ class Question
     integer.to_s.reverse.to_i == integer
   end
 
-  private def highest_palindromic(integer)
-    counter = 999
+  private def highest_palindromic_for(integer, range: 999)
+    counter = range
     loop do
       multiplied = integer * counter
       palindromic = palindromic?(multiplied)
