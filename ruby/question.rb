@@ -29,6 +29,31 @@ class Question
   def three
     600851475143.prime_division.last.first
   end
+
+  # A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
+  # Find the largest palindrome made from the product of two 3-digit numbers.
+  def four
+    range = (100...1000).to_a.reverse.inject([0]) do |array, number|
+      highest_palindromic = highest_palindromic(number)
+      array << highest_palindromic if highest_palindromic and highest_palindromic > array.last
+      array
+    end.last
+  end
+
+  private def palindromic?(integer)
+    integer.to_s.reverse.to_i == integer
+  end
+
+  private def highest_palindromic(integer)
+    counter = 999
+    loop do
+      multiplied = integer * counter
+      palindromic = palindromic?(multiplied)
+      return multiplied if palindromic
+      counter -= 1
+      break if counter.zero? or palindromic
+    end
+  end
 end
 
 Question.new.run
