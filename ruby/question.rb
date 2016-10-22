@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'pry'
 require 'prime'
 
 class Question
