@@ -6,7 +6,7 @@ defmodule Multiples do
       not (Multiples.multiple_of_3?(number) or Multiples.multiple_of_5?(number))
     end
 
-    IO.puts Enum.sum(multiples)
+    Enum.sum(multiples)
   end
 
   def multiple_of_3?(number) do
@@ -18,4 +18,5 @@ defmodule Multiples do
   end
 end
 
-Multiples.sum(999)
+answer = Multiples.sum(999)
+IO.puts "Question 1: #{answer}"
