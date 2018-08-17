@@ -4,9 +4,8 @@
 
 # Get running
 
-- Install the Ruby binaries
-- Execture the following:
+## Ruby
 
 ```
-$ ruby ruby/question.rb
+$ docker run -v ~/Sites/project_euler:/project_euler --rm -it ruby ruby project_euler/ruby/question.rb
 ```
